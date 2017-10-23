@@ -53,4 +53,7 @@
   window.nodeFetch = require('node-fetch');
   window.httpsAgent = require('https').Agent;
   window.nodeBuffer = Buffer;
+  window.libphonenumber = require('google-libphonenumber').PhoneNumberUtil.getInstance();
+  window.libphonenumber.PhoneNumberFormat = require('google-libphonenumber').PhoneNumberFormat;
+
 })();
