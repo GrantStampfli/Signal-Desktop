@@ -1,14 +1,11 @@
-const fs = require('fs');
 const path = require('path');
 
 const app = require('electron').app;
 const ElectronConfig = require('electron-config');
 
+const type = require('./app_type');
 const config = require('./config');
 
-
-const jsonFile = fs.readFileSync(path.join(__dirname, '..', 'package.json'));
-const packageJson = JSON.parse(jsonFile, 'utf-8');
 
 // use a separate data directory for development
 if (config.has('storageProfile')) {
@@ -21,8 +18,8 @@ if (config.has('storageProfile')) {
 }
 
 // use a separate data directory for beta builds
-if (packageJson.type) {
-  const userData = app.getPath('userData') + '-' + packageJson.type;
+if (type) {
+  const userData = app.getPath('userData') + '-' + type;
 
   app.setPath('userData', userData);
 }

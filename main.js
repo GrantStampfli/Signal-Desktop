@@ -11,7 +11,7 @@ const ipc = electron.ipcMain;
 const Menu = electron.Menu;
 const shell = electron.shell;
 
-const packageJson = require('./package.json');
+const type = require('./app/app_type');
 const autoUpdate = require('./app/auto_update');
 const windowState = require('./app/window_state');
 
@@ -73,7 +73,7 @@ function prepareURL(pathSegments) {
       environment: config.environment,
       node_version: process.versions.node,
       hostname: os.hostname(),
-      type: packageJson.type,
+      type: type,
       appInstance: process.env.NODE_APP_INSTANCE,
     }
   })

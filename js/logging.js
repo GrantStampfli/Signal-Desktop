@@ -73,9 +73,6 @@ function getHeader() {
 
   header += ' node/' + window.config.node_version;
   header += ' env/' + window.config.environment;
-  if (window.config.type) {
-    header += ' type/' + window.config.type;
-  }
 
   return header;
 }
