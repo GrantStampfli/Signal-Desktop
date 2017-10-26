@@ -3,7 +3,7 @@ const url = require('url');
 const os = require('os');
 
 const _ = require('lodash');
-const electron = require('electron')
+const electron = require('electron');
 
 const BrowserWindow = electron.BrowserWindow;
 const app = electron.app;
@@ -11,6 +11,7 @@ const ipc = electron.ipcMain;
 const Menu = electron.Menu;
 const shell = electron.shell;
 
+const packageJson = require('./package.json');
 const autoUpdate = require('./app/auto_update');
 const windowState = require('./app/window_state');
 
@@ -69,6 +70,8 @@ function prepareURL(pathSegments) {
       environment: config.environment,
       node_version: process.versions.node,
       hostname: os.hostname(),
+      type: packageJson.type,
+      appInstance: process.env.NODE_APP_INSTANCE,
     }
   })
 }

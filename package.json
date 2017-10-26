@@ -37,6 +37,7 @@
     "start": "electron .",
     "asarl": "asar l release/mac/Signal.app/Contents/Resources/app.asar",
     "icon-gen": "electron-icon-maker --input=images/icon_1024.png --output=./build",
+    "prepare-beta": "node prepare_beta.js",
     "generate": "npm run icon-gen && grunt",
     "build": "build --em.environment=$SIGNAL_ENV",
     "dist": "npm run generate && npm run build",

@@ -27,7 +27,30 @@ a {
 
 <div>
 <script>
-  document.write('v', window.config.version);
+  document.write('<div>v', window.config.version + '</div>');
+</script>
+</div>
+<div>
+<script>
+  var previous = false;
+  if (window.config.environment !== 'production') {
+    document.write(' ' + window.config.environment);
+    previous = true;
+  }
+  if (window.config.type) {
+    if (previous) {
+      document.write(' -');
+    }
+    document.write(' ' + window.config.type);
+    previous = true;
+  }
+  if (window.config.appInstance) {
+    if (previous) {
+      document.write(' -');
+    }
+    document.write(' ' + window.config.appInstance);
+    previous = true;
+  }
 </script>
 </div>
 <div>
