@@ -25,7 +25,7 @@ let mainWindow;
 
 const config = require("./app/config");
 
-if (config.environment === 'production' && !process.mas) {
+if (!process.mas) {
   console.log('making app single instance');
   var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
     // Someone tried to run a second instance, we should focus our window
@@ -37,7 +37,7 @@ if (config.environment === 'production' && !process.mas) {
   });
 
   if (shouldQuit) {
-    console.log('quitting');
+    console.log('quitting; we are the second instance');
     app.quit();
     return;
   }
