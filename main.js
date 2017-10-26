@@ -49,7 +49,7 @@ if (!process.mas) {
 
 const logging = require('./app/logging');
 
-// This must be after we set up appPath in user_config.js, so we know were logs go
+// This must be after we set up appPath in user_config.js, so we know where logs go
 logging.initialize();
 const logger = logging.getLogger();
 
