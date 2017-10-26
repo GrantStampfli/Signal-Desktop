@@ -20,10 +20,14 @@ console.log('setting AUMID');
 app.setAppUserModelId('org.whispersystems.signal-desktop')
 
 // Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+//   be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 const config = require("./app/config");
+
+// Very important to put before the single instance check, since it is based on the
+//   userData directory.
+const userConfig = require('./app/user_config');
 
 if (!process.mas) {
   console.log('making app single instance');
@@ -43,10 +47,9 @@ if (!process.mas) {
   }
 }
 
-const userConfig = require('./app/user_config');
 const logging = require('./app/logging');
 
-// this must be after we set up appPath in user_config.js
+// This must be after we set up appPath in user_config.js, so we know were logs go
 logging.initialize();
 const logger = logging.getLogger();
 
