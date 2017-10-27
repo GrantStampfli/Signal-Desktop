@@ -34,9 +34,10 @@ const BETA_APP_ID = 'org.whispersystems.signal-desktop-beta';
 
 // -------
 
-function checkValue(object, objectPath, value) {
-  if (_.get(object, objectPath) !== value) {
-    throw new Error(objectPath + ' is not ' + value);
+function checkValue(object, objectPath, expected) {
+  const actual = _.get(object, objectPath)
+  if (actual !== expected) {
+    throw new Error(objectPath + ' was ' + actual + '; expected ' + expected);
   }
 }
 
