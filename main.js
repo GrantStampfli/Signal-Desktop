@@ -11,13 +11,14 @@ const ipc = electron.ipcMain;
 const Menu = electron.Menu;
 const shell = electron.shell;
 
-const type = require('./app/app_type');
+const packageJson = require('./package.json');
 const autoUpdate = require('./app/auto_update');
 const windowState = require('./app/window_state');
 
 
-console.log('setting AUMID');
-app.setAppUserModelId('org.whispersystems.signal-desktop')
+const aumid = 'org.whispersystems.' + packageJson.name;
+console.log('setting AUMID to ' + aumid);
+app.setAppUserModelId(aumid);
 
 // Keep a global reference of the window object, if you don't, the window will
 //   be closed automatically when the JavaScript object is garbage collected.
@@ -64,6 +65,7 @@ function prepareURL(pathSegments) {
     protocol: 'file:',
     slashes: true,
     query: {
+      name: packageJson.name,
       locale: locale.name,
       version: app.getVersion(),
       buildExpiration: config.get('buildExpiration'),
@@ -73,7 +75,6 @@ function prepareURL(pathSegments) {
       environment: config.environment,
       node_version: process.versions.node,
       hostname: os.hostname(),
-      type: type,
       appInstance: process.env.NODE_APP_INSTANCE,
     }
   })

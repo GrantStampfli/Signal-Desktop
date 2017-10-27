@@ -281,7 +281,7 @@ module.exports = function(grunt) {
     var keyBase = 'WhisperSystems/Signal-Desktop';
     var sha = gitinfo.local.branch.current.SHA;
     var files = [{
-      zip: 'signal-desktop-' + package_json.version + '.zip',
+      zip: package_json.name + '-' + package_json.version + '.zip',
       extractedTo: 'linux'
     }];
 

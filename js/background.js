@@ -14,12 +14,9 @@
     var initialLoadComplete = false;
     window.owsDesktopApp = {};
 
-    var title = window.document.title;
+    var title = window.config.name;
     if (window.config.environment !== 'production') {
         title += ' - ' + window.config.environment;
-    }
-    if (window.config.type) {
-        title += ' - ' + window.config.type;
     }
     if (window.config.appInstance) {
         title += ' - ' + window.config.appInstance;
