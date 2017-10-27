@@ -56,7 +56,7 @@
     "release": "npm run release-mac && npm run release-win && npm run release-lin"
   },
   "build": {
-    "appId": "org.whispersystems.${name}",
+    "appId": "org.whispersystems.signal-desktop",
     "mac": {
       "artifactName": "${name}-mac-${version}.${ext}",
       "category": "public.app-category.social-networking",

@@ -27,6 +27,11 @@ const PRODUCT_NAME_PATH = 'productName';
 const PRODUCTION_PRODUCT_NAME = 'Signal';
 const BETA_PRODUCT_NAME = 'Signal Beta';
 
+const APP_ID_PATH = 'build.appId';
+const PRODUCTION_APP_ID = 'org.whispersystems.signal-desktop';
+const BETA_APP_ID = 'org.whispersystems.signal-desktop-beta';
+
+
 // -------
 
 function checkValue(object, objectPath, value) {
@@ -39,11 +44,13 @@ function checkValue(object, objectPath, value) {
 
 checkValue(packageJson, NAME_PATH, PRODUCTION_NAME);
 checkValue(packageJson, PRODUCT_NAME_PATH, PRODUCTION_PRODUCT_NAME);
+checkValue(packageJson, APP_ID_PATH, PRODUCTION_APP_ID);
 
 // -------
 
 _.set(packageJson, NAME_PATH, BETA_NAME);
 _.set(packageJson, PRODUCT_NAME_PATH, BETA_PRODUCT_NAME);
+_.set(packageJson, APP_ID_PATH, BETA_APP_ID);
 
 // -------
 
