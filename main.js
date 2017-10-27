@@ -65,7 +65,7 @@ function prepareURL(pathSegments) {
     protocol: 'file:',
     slashes: true,
     query: {
-      name: packageJson.name,
+      name: packageJson.productName,
       locale: locale.name,
       version: app.getVersion(),
       buildExpiration: config.get('buildExpiration'),

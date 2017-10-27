@@ -451,7 +451,7 @@ module.exports = function(grunt) {
         return app.client.getTitle();
       }).then(function (title) {
         // Verify the window's title
-        assert.equal(title, 'Signal');
+        assert.equal(title, package_json.productName);
         console.log('title ok');
       }).then(function () {
         assert(app.chromeDriver.logLines.indexOf('NODE_ENV ' + environment) > -1);
